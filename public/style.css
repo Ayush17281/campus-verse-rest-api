@@ -1,0 +1,43 @@
+
+
+.user{
+    color: #666;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+h1{
+  font-family: "Griffy", system-ui;
+  font-weight: 600;
+  color: #F4A62C;
+  background-color: #0B8185;
+  text-align: center;
+  font-style: normal;
+}
+
+.tagline{
+    text-align: center;
+}
+.post {  
+    background-color: #FDF5E7;
+    color: black;
+}
+
+.id {  
+    background-color: #e0b367;
+    color: black;
+}
+
+.user {
+    font-style: italic;
+    font-weight: bold;
+    background-color: #98D1DC;
+}
+
+.delete {
+    border-color: black;
+    border-radius: 10%;
+    font-weight: bold;
+    color: black;
+    background-color: red;
+}

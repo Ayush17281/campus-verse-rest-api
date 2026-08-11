@@ -4,7 +4,8 @@
 
 A small college posting app I built while learning **Node.js, Express.js, EJS and REST APIs**.
 
-Users can create posts with an anonymous username and share their college-related thoughts and experiences.
+Users can create posts with an anonymous username and share their college-related thoughts and experiences. **Initially, the app used an in-memory array to store data; database integration was added later as part of the learning process.**
+
 
 ## Tech Stack
 

@@ -1,12 +1,12 @@
+
+//MIDDLEWARES
 const express = require("express");
-
+require("dotenv").config();
 const    {v4 : uuidv4} = require("uuid") ;
-
-
 // Settin gup a local Server 
 const app = express();
 //Communication end point between client and Server 
-const port = 8080 ;
+const port = process.env.PORT || 8080  ;
 
 //parse the data
 app.use(express.urlencoded({extended:true})) ;
@@ -24,7 +24,7 @@ app.set("views",path.join(__dirname,"views"));
  //Public 
  app.use(express.static(path.join(__dirname,"public")));
 
-
+//DATABASE
 let posts = [
 {  
     id: uuidv4(),
@@ -48,13 +48,11 @@ username : "SilentScholar",
 content: "Reading Hall: The reading hall is probably one of the best places on campus for self-study. If you find it difficult to concentrate in your room or hostel, give it a try. During exams it can get busy, so getting into the habit of studying there early is much better than discovering it a week before your exams.",
 },
 
-
 {
 id: uuidv4(),
 username : "CampusExplorer",
 content: "Campus Size: The campus is relatively small, especially when you compare it with some other colleges. You might notice it pretty quickly after joining. But honestly, there's an advantage to it — most places are easily accessible and you don't have to spend half your day walking from one end of campus to another.",
 },
-
 
 {
 id: uuidv4(),
@@ -70,6 +68,8 @@ content: "College Clubs: VIT has a good mix of technical and non-technical clubs
 }
 ];
 
+
+//ROUTES
  //Home Route
  app.get("/posts",(req,res) => {
     res.render("index.ejs",{posts}); 
@@ -119,6 +119,8 @@ app.delete('/posts/:id',(req,res)=>{
    res.redirect("/posts");
 })
 
+
+//CODE 
 app.listen(port, ()=>{
     console.log(`App is Listening on the port ${port} `); 
 })

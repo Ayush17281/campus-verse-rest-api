@@ -30,8 +30,12 @@ const connection = mysql.createConnection({
    host: process.env.DB_HOST,
    user: process.env.DB_USER,
    database : process.env.DB_NAME,
-   password : process.env.DB_PASSWORD
-})
+   password : process.env.DB_PASSWORD,
+   port : process.env.DB_PORT,
+   ssl : {
+      rejectUnauthorized : false
+   }
+});
 // Test the connection 
 connection.connect((err)=>{
    if(err) {
@@ -47,7 +51,7 @@ connection.connect((err)=>{
 //ROUTES
  //Home Route
 app.get("/posts", (req,res) => {
-   let q = "SELECT * FROM POSTS ORDER BY created_at DESC";
+   let q = "SELECT * FROM posts ORDER BY created_at DESC";
    connection.query(q,(err,result)=>{
       if(err){
          console.log(err);
@@ -67,7 +71,7 @@ app.get("/posts", (req,res) => {
  app.post("/posts",(req,res) => {
     let {username , content} = req.body ; 
     let id = uuidv4() ;
-    let q = `INSERT INTO POSTS(id, username, content) VALUES (?,?,?)`;
+    let q = `INSERT INTO posts(id, username, content) VALUES (?,?,?)`;
    connection.query(q,[id,username,content],(err,result)=>{
       if(err){
          console.log(err);
@@ -82,7 +86,7 @@ app.get("/posts", (req,res) => {
  //Get to the Specific Post 
  app.get("/posts/:id",(req,res)=>{
    let {id} = req.params;
-   let q = `SELECT * FROM POSTS WHERE id=?` ;
+   let q = `SELECT * FROM posts WHERE id=?` ;
    connection.query(q,[id],(err,result)=>{
       if(err){
          console.log(err) ;
@@ -98,7 +102,7 @@ app.get("/posts", (req,res) => {
 
 app.get('/posts/:id/edit',(req,res)=>{
    let {id} = req.params;
-   let q = "SELECT * FROM POSTS WHERE id=?" ;
+   let q = "SELECT * FROM posts WHERE id=?" ;
    connection.query(q,[id],(err,result) => {
       if(err){
          console.log(err);
@@ -113,7 +117,7 @@ app.get('/posts/:id/edit',(req,res)=>{
    let {id} = req.params;
    let newcontent = req.body.content ;
   
-         let q = `UPDATE POSTS SET CONTENT = ? WHERE id=?`;
+         let q = `UPDATE posts SET CONTENT = ? WHERE id=?`;
          connection.query(q,[newcontent,id],(err,result)=>{
             if(err){
                console.log(err);
@@ -128,7 +132,7 @@ app.get('/posts/:id/edit',(req,res)=>{
 /// Delet  a Post 
 app.delete('/posts/:id',(req,res) => {
    let {id} = req.params;
-   let q = `DELETE FROM POSTS WHERE id=?`;
+   let q = `DELETE FROM posts WHERE id=?`;
    connection.query(q,[id],(err,result)=>{
          if(err) {
             console.log(err); 

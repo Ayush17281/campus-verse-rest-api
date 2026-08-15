@@ -22,6 +22,14 @@
         <div class="card-body">
         <h5 class="card-title text-primary">@<%= post.username %></h5>
         <p class="card-text"><%= post.content %></p>
+        <p class="text-muted small mb-0">
+    Posted on: <%= post.created_at %>
+
+    <% if (new Date(post.updated_at).getTime()!== new Date(post.created_at).getTime()){%>
+        · Edited: <%= post.updated_at%>
+<%}%>
+</p>
+<br>
         <a href="/posts/<%= post.id %>" class="btn btn-primary">See in Detail</a>
         <a href="/posts/<%= post.id %>/edit" class="btn btn-secondary">Edit Post</a>
     <form method="post" action="/posts/<%= post.id %>?_method=DELETE" class="d-inline">

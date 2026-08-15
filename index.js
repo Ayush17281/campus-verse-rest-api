@@ -50,6 +50,9 @@ connection.connect((err)=>{
 
 //ROUTES
  //Home Route
+ app.get("/", (req, res) => {
+    res.redirect("/posts");
+});
 app.get("/posts", (req,res) => {
    let q = "SELECT * FROM posts ORDER BY created_at DESC";
    connection.query(q,(err,result)=>{

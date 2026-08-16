@@ -51,12 +51,13 @@ https://campus-verse-rest-api.onrender.com
 ## 🔌 Routes
 
 ```text
-GET     /posts
-POST    /posts
-GET     /posts/:id
-GET     /posts/:id/edit
-PATCH   /posts/:id
-DELETE  /posts/:id
+GET     /posts          → View all posts
+GET     /posts/new      → Show create-post form
+POST    /posts          → Create a new post
+GET     /posts/:id      → View a specific post
+GET     /posts/:id/edit → Show edit-post form
+PATCH   /posts/:id      → Update a post
+DELETE  /posts/:id      → Delete a post
 ```
 
 ## 💻 Run Locally

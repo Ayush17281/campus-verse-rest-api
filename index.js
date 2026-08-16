@@ -145,8 +145,6 @@ app.delete('/posts/:id',(req,res) => {
          }
    }) 
 })
-
-
 //CODE 
 app.listen(port, ()=>{
     console.log(`App is Listening on the port ${port} `); 

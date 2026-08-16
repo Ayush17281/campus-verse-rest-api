@@ -1,82 +1,109 @@
-# campus-verse-rest-api
+# Campus Verse 🎓
 
-## Overview
+A college posting platform built while learning **Node.js, Express.js, EJS, REST APIs, and MySQL**.
 
-A small college posting app I built while learning **Node.js, Express.js, EJS and REST APIs**.
+Students can create anonymous posts to share their college-related thoughts, experiences, and opinions.
 
-Users can create posts with an anonymous username and share their college-related thoughts and experiences. **Initially, the app used an in-memory array to store data; database integration was added later as part of the learning process.**
+## 🚀 Live Demo
 
+Try the deployed version:
 
-## Tech Stack
+https://campus-verse-rest-api.onrender.com
 
-- Node.js
-- Express.js
-- EJS
-- REST APIs
-- Bootstrap
-- CSS
-- JavaScript
-- UUID
+> The live demo may occasionally be unavailable when the cloud services are sleeping or temporarily offline. Screenshots of the application are provided below.
 
-## How to Run
-1. Clone the repository:
-```bash
-git clone https://github.com/Ayush17281/campus-verse-rest-api.git
-```
-2. Go to the project folder:
-   ```bash
-   cd campus-verse-rest-api
-   ```
-3. Install dependencies:
-```bash
-npm install
-```
-4. Start the server 
-```bash
-nodemon index.js
+## 📸 Screenshots
 
-```
+### Posts
+![Posts](screenshots/all-posts.png)
 
-If nodemon is not installed: 
-```bash
-npm install -g nodemon
+### Create Post
+![Create Post](screenshots/create-post.png)
 
-```
-5. Open in browser:
-```bash
-http://localhost:8080/posts
-```
+### Edit Post
+![Edit Post](screenshots/edit-post.png)
 
-## Features
+### View Post In Detail 
+![View A Post In Detail](screenshots/post-detail.png)
 
-* Create a post
-* View all posts
-* View post details
-* Edit posts
-* Delete posts
+## 🛠️ Tech Stack
+
+* Node.js
+* Express.js
+* EJS
+* MySQL
+* REST APIs
+* Bootstrap
+* UUID
+* Aiven — Cloud MySQL
+* Render — Deployment
+
+## ✨ Features
+
+* Create, view, edit and delete posts
 * Anonymous usernames
-* Simple Bootstrap UI
+* UUID-based post IDs
+* Created & updated timestamps
+* MySQL database persistence
+* Cloud database integration
+* Deployed backend
 
-## Routes
+## 🔌 Routes
 
 ```text
-GET     /posts          → View all posts
-GET     /posts/new      → Create a new post
-GET     /posts/:id      → View a specific post
-GET     /posts/:id/edit → Edit a post
-PATCH   /posts/:id      → Update a post
-DELETE  /posts/:id      → Delete a post
+GET     /posts
+POST    /posts
+GET     /posts/:id
+GET     /posts/:id/edit
+PATCH   /posts/:id
+DELETE  /posts/:id
 ```
 
-## What I Learned
+## 💻 Run Locally
 
-This project helped me practice:
+### 1. Clone the repository
 
-* Express routing
+git clone https://github.com/Ayush17281/campus-verse-rest-api.git
+
+### 2. Go to the project folder
+
+cd campus-verse-rest-api
+
+### 3. Install dependencies
+
+npm install
+
+### 4. Set up MySQL
+
+Create a MySQL database and run the `schema.sql` file to create the `posts` table.
+
+### 5. Create `.env`
+
+Add your MySQL connection details:
+
+DB_HOST=your_host
+DB_PORT=your_port
+DB_USER=your_user
+DB_PASSWORD=your_password
+DB_NAME=your_database_name
+
+### 6. Start the server
+
+npm start
+
+Open:
+
+http://localhost:8080/
+
+## 📚 What I Learned
+
+* Express routing & middleware
+* REST APIs and CRUD operations
 * EJS templating
-* REST APIs
-* CRUD operations
-* HTML forms
-* Basic Bootstrap styling
+* MySQL integration
+* UUIDs & parameterized queries
+* Environment variables
+* Git & GitHub
+* Cloud deployment with **Aiven + Render**
 
-> A small project as part of my MERN stack learning journey.
+> A project built as part of my MERN Stack learning journey.

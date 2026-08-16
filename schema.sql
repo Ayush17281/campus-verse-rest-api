@@ -1,4 +1,6 @@
-USE defaultdb;
+CREATE DATABASE IF NOT EXISTS campus_verse;
+
+USE campus_verse;
 
 CREATE TABLE posts (
     id VARCHAR(36) PRIMARY KEY,

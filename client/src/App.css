@@ -1,0 +1,610 @@
+/* ==========================================================================
+   Campus Verse — High-Vibrancy App Aesthetic (Blinkit & Zepto Inspired)
+   ========================================================================== */
+
+@import url('https://googleapis.com');
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  /* High-Vibrancy App Brand Palette */
+  --brand-neon: #ecfb42;       /* Bright Blinkit-style neon yellow-green */
+  --brand-purple: #5c3bc4;     /* Deep Zepto-style electric purple */
+  --brand-purple-hover: #472ca3;
+  --bg-fresh: #f4f6f2;         /* Crisp clean canvas background */
+  --paper-white: #ffffff;      /* Pure white container cards */
+  --dark-ink: #111210;         /* Stark structural borders and dark text */
+  --muted-text: #60625d;
+  
+  /* Category indicator status highlights */
+  --accent-pink: #ff7ebb;
+  --accent-blue: #4ad7ff;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-fresh);
+  color: var(--dark-ink);
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.2px;
+}
+
+button, input, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+main {
+  max-width: 1040px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* --- Global Inputs & Textareas --- */
+input, textarea {
+  width: 100%;
+  background: var(--paper-white);
+  color: var(--dark-ink);
+  border: 2px solid var(--dark-ink);
+  padding: 14px 16px;
+  border-radius: 8px; /* Softer, modern application radii */
+  font-size: 15px;
+  font-weight: 500;
+  outline: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+input:focus, textarea:focus {
+  box-shadow: 4px 4px 0px var(--dark-ink);
+  transform: translate(-2px, -2px);
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #a0a29d;
+}
+
+/* --- 1. Header (Navbar Accent) --- */
+header {
+  background: var(--paper-white);
+  padding: 16px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 3px solid var(--dark-ink);
+}
+/* --- 1. Header (Navbar Accent - Premium Overhaul) --- */
+header h2 {
+  margin: 0;
+  /* Stark pure black color override */
+  color: #000000 !important; 
+  /* Elegant traditional Roman serif typography with an expanded font track length */
+  font-family: 'Times New Roman', Times, 'Playfair Display', Georgia, serif !important;
+  font-size: 38px; /* Enlarged layout font footprint */
+  font-weight: 700;
+  letter-spacing: 0.5px; /* Added spacing width tracking to increase typography length visual impact */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* --- Redesigned Navbar Alert (Classic Typography Override) --- */
+header p {
+  margin: 0;
+  font-size: 15px; /* Slightly upscaled for classic serif readability */
+  font-weight: 600;
+  color: var(--dark-ink) !important; /* Matches branding black color profile */
+  /* Elegant traditional serif typography matching Times New Roman architecture */
+  font-family: 'Times New Roman', Times, 'Playfair Display', Georgia, serif !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  letter-spacing: 0.2px;
+}
+
+/* Completely strips away the purple dot indicator layer */
+header p::before {
+  display: none !important;
+  content: none !important;
+}
+
+
+/* Elegant tech application indicator badge placeholder next to status text */
+header p::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: var(--brand-purple); /* Premium purple dot accent */
+  border-radius: 50%;
+}
+
+/* --- 2. Login Top Deck Layout --- */
+.login-container, 
+div[style*="text-align: center"] {
+  background: var(--paper-white);
+  border: 2px solid var(--dark-ink);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 32px;
+  box-shadow: 4px 4px 0px var(--dark-ink);
+}
+
+/* --- 3. Hero Feature Welcome Board --- */
+.welcome {
+  padding: 44px 36px;
+  background: var(--brand-neon);
+  border: 3px solid var(--dark-ink);
+  border-radius: 16px;
+  box-shadow: 6px 6px 0px var(--dark-ink);
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome h1 {
+  margin: 0 0 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(32px, 5vw, 46px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  color: var(--dark-ink);
+}
+
+.welcome p {
+  margin-bottom: 0;
+  max-width: 580px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--dark-ink);
+}
+
+/* --- 4. High-Vibrancy App Pills (Category Selectors Centered) --- */
+.categories {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 32px 0;
+  justify-content: center; /* Centers items horizontally */
+  align-items: center;     /* Aligns items vertically if rows wrap */
+}
+
+.categories button {
+  padding: 10px 20px;
+  border: 2px solid var(--dark-ink);
+  border-radius: 30px; /* Fully rounded modern pill bubbles */
+  background: var(--paper-white);
+  color: var(--dark-ink);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.categories button:hover {
+  background: var(--brand-neon);
+  transform: translateY(-2px);
+}
+
+.categories button.active {
+  background: var(--brand-purple);
+  color: var(--paper-white);
+  box-shadow: 3px 3px 0px var(--dark-ink);
+}
+
+/* --- 5. Main Section Header Structures --- */
+.posts {
+  background: transparent;
+  padding: 0;
+  margin-bottom: 40px;
+  border: none;
+}
+
+.posts h2 {
+  margin: 0 0 24px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+  color: var(--dark-ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.posts > p {
+  color: var(--muted-text);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* --- 6. Post Action Module Forms --- */
+form.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--brand-neon);
+  border: 3px solid var(--dark-ink);
+  padding: 28px;
+  border-radius: 16px;
+  margin-bottom: 36px;
+  box-shadow: 4px 4px 0px var(--dark-ink);
+}
+
+form.posts button {
+  align-self: flex-start;
+}
+
+/* Bottom Tech search row layout context adjustment */
+.posts form:not(.posts) {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.posts form:not(.posts) input {
+  flex: 1;
+}
+
+/* App Core Interface Action Buttons */
+form.posts button, 
+.posts form:not(.posts) button,
+button.login-btn {
+  background: var(--brand-purple);
+  border: 2px solid var(--dark-ink);
+  color: var(--paper-white);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 26px;
+  border-radius: 8px;
+  box-shadow: 3px 3px 0px var(--dark-ink);
+  transition: all 0.1s ease;
+}
+
+form.posts button:hover,
+.posts form:not(.posts) button:hover,
+button.login-btn:hover {
+  background: var(--brand-purple-hover);
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px var(--dark-ink);
+}
+
+/* Secondary/Alternative text-link switches */
+button.switch-form-btn {
+  background: transparent;
+  border: none;
+  color: var(--brand-purple);
+  font-weight: 700;
+  text-decoration: underline;
+  padding: 4px;
+}
+
+/* --- 7. Regular Campus Discussion Post Cards --- */
+.posts article {
+  background: var(--paper-white);
+  border: 2px solid var(--dark-ink);
+  padding: 24px 28px;
+  margin: 0 0 16px;
+  border-radius: 12px;
+  box-shadow: 4px 4px 0px rgba(17, 18, 16, 0.1);
+  transition: all 0.2s ease;
+}
+
+.posts article:hover {
+  transform: translateY(-2px);
+  box-shadow: 5px 5px 0px var(--dark-ink);
+}
+
+.posts article:last-child {
+  margin-bottom: 0;
+}
+
+.posts article h3 {
+  margin: 0 0 10px 0;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--dark-ink);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.3;
+}
+
+.posts article p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333531;
+  overflow-wrap: anywhere;
+}
+
+/* Links & interactive controls inside discussion posts */
+.posts article a {
+  display: inline-block;
+  margin-top: 14px;
+  color: var(--brand-purple);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  border-bottom: 2px solid var(--brand-purple);
+  transition: color 0.15s ease;
+}
+
+.posts article a:hover {
+  color: var(--brand-purple-hover);
+  border-color: var(--brand-purple-hover);
+}
+
+.posts article button {
+  margin: 14px 8px 0 0;
+  padding: 8px 16px;
+  border: 2px solid var(--dark-ink);
+  border-radius: 6px;
+  background: var(--bg-fresh);
+  font-size: 13px;
+  font-weight: 700;
+  transition: background 0.15s ease;
+}
+
+.posts article button:hover {
+  background: var(--brand-neon);
+}
+
+.posts article hr {
+  display: none;
+}
+
+
+/* --- 9. Footer (Bottom Caps) --- */
+footer {
+  padding: 36px 16px;
+  border-top: 2px solid var(--dark-ink);
+  text-align: center;
+  color: var(--muted-text);
+  font-weight: 600;
+  font-size: 13px;
+  background: var(--paper-white);
+  margin-top: 60px;
+}
+
+/* --- 10. Mobile Responsive Viewport Adapters --- */
+@media (max-width: 600px) {
+  header {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  header h2 {
+    font-size: 26px;
+  }
+
+  main {
+    margin: 20px auto;
+    padding: 0 12px;
+  }
+
+  .welcome {
+padding: 28px 20px;
+border-radius: 12px;
+}
+.posts article,
+.tech-reads-container article,
+.posts:last-of-type article {
+padding: 20px;
+border-radius: 10px;
+}
+.posts form:not(.posts) {
+flex-direction: column;
+gap: 8px;
+}
+.posts form:not(.posts) button {
+align-self: fill;
+width: 100%;
+text-align: center;
+}
+}
+/* ==========================================================================
+   Campus Verse — Auth Sections & Header Micro-Fixes
+   ========================================================================== */
+
+/* Fix default browser gray background on autofilled inputs */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px var(--paper-white) inset !important;
+  -webkit-text-fill-color: var(--dark-ink) !important;
+}
+
+/* 1. Header Alert Adjustments */
+header p {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  background: var(--brand-neon);
+  padding: 8px 14px;
+  border: 2px solid var(--dark-ink);
+  border-radius: 6px;
+  box-shadow: 2px 2px 0px var(--dark-ink); /* Adds app aesthetic depth */
+}
+
+/* Welcome user text & logout row configuration */
+header div:last-child {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Logout Button styling adjustment */
+header button, 
+button.logout-btn {
+  background: var(--dark-ink) !important;
+  color: var(--paper-white) !important;
+  border: 2px solid var(--dark-ink);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 2px 2px 0px rgba(0,0,0,0.15);
+  transition: all 0.1s ease;
+}
+
+header button:hover, 
+button.logout-btn:hover {
+  background: #333531 !important;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px var(--dark-ink);
+}
+
+/* 2. Login & Signup Container Panel Overhaul */
+.login-container,
+div[style*="text-align: center"] {
+  background: var(--paper-white);
+  border: 3px solid var(--dark-ink);
+  border-radius: 16px;
+  padding: 32px 24px;
+  margin: 24px auto 40px auto;
+  max-width: 900px;
+  box-shadow: 5px 5px 0px var(--dark-ink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Headings within auth module */
+.login-container h2,
+div[style*="text-align: center"] h2,
+div[style*="text-align: center"] h1 {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin: 0 0 20px 0;
+  align-self: flex-start;
+  color: var(--dark-ink);
+}
+
+/* Form structure adjustments for inline rows */
+.login-container form,
+div[style*="text-align: center"] form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+/* Enforce style overrides for fields */
+.login-container input,
+div[style*="text-align: center"] input {
+  flex: 1;
+  background: var(--paper-white) !important;
+  border: 2px solid var(--dark-ink) !important;
+  color: var(--dark-ink) !important;
+  border-radius: 8px;
+  padding: 12px 16px;
+  height: 46px;
+}
+
+/* Enforce style overrides for action buttons */
+.login-container button[type="submit"],
+div[style*="text-align: center"] form button {
+  background: var(--brand-purple) !important;
+  color: var(--paper-white) !important;
+  border: 2px solid var(--dark-ink) !important;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0 24px;
+  height: 46px;
+  border-radius: 8px;
+  box-shadow: 3px 3px 0px var(--dark-ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  transition: all 0.1s ease;
+}
+
+.login-container button[type="submit"]:hover,
+div[style*="text-align: center"] form button:hover {
+  background: var(--brand-purple-hover) !important;
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px var(--dark-ink);
+}
+
+/* 3. Link Toggle Switch Style Fixes */
+button.switch-form-btn,
+div[style*="text-align: center"] > button:not([type="submit"]) {
+  background: #eef0eb !important;
+  border: 2px solid var(--dark-ink) !important;
+  color: var(--dark-ink) !important;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 6px;
+  margin-top: 8px;
+  box-shadow: 2px 2px 0px var(--dark-ink);
+  text-decoration: none !important;
+  transition: all 0.1s ease;
+}
+
+button.switch-form-btn:hover,
+div[style*="text-align: center"] > button:not([type="submit"]):hover {
+  background: var(--brand-neon) !important;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px var(--dark-ink);
+}
+
+/* Responsive collapse rules for small viewports */
+@media (max-width: 768px) {
+  .login-container form,
+  div[style*="text-align: center"] form {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  
+  .login-container input,
+  div[style*="text-align: center"] input,
+  .login-container button[type="submit"],
+  div[style*="text-align: center"] form button {
+    width: 100%;
+  }
+}
+/* --- Absolute Direct Override for Tech Reads Card Backgrounds --- */
+.posts form ~ article,
+.posts input ~ article,
+form:not(.posts) ~ article,
+main > div:last-of-type article {
+  background-color: #e6f7ff !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Ensure headings inside these specific blue cards contrast perfectly */
+.posts form ~ article h3,
+.posts input ~ article h3,
+form:not(.posts) ~ article h3,
+main > div:last-of-type article h3 {
+  color: #111210 !important;
+}

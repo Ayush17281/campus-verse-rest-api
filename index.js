@@ -13,9 +13,13 @@ const    {v4 : uuidv4} = require("uuid") ;
 
 // Settin up a local Server 
 const app = express();
-app.use(cors({ origin: 'http://localhost:5173',
-   credentials: true
- }));
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'https://campus-verse-frontend.vercel.app'
+  ],
+  credentials: true
+}));
 //Communication end point between client and Server 
 const port = process.env.PORT || 8080  ;
 

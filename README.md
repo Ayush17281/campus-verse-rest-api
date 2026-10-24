@@ -1,16 +1,18 @@
 # Campus Verse 🎓
 
-A college posting platform built while learning **Node.js, Express.js, EJS, REST APIs, and MySQL**.
+A college posting platform built while learning **React, Vite, Node.js, Express.js, REST APIs, and MySQL**.
 
-Students can create anonymous posts to share their college-related thoughts, experiences, and opinions.
+Students can create posts to share their college-related thoughts, experiences, and opinions.
 
 ## 🚀 Live Demo
 
-Try the deployed version:
+Try the deployed application:
 
-https://campus-verse-rest-api.onrender.com
+**Frontend:** https://campus-verse-frontend.vercel.app/
 
-> The live demo may occasionally be unavailable when the cloud services are sleeping or temporarily offline. Screenshots of the application are provided below.
+**Backend:** https://campus-verse-rest-api.onrender.com
+
+> The backend may take 2–3 minutes to start if Render has temporarily put the service to sleep. Screenshots of the application are provided below.
 
 ## 📸 Screenshots
 
@@ -20,94 +22,133 @@ https://campus-verse-rest-api.onrender.com
 ### Create Post
 ![Create Post](screenshots/Share-A-post.png)
 
-### Edit Post
-![Edit Post](screenshots/edit-post.png)
+### Edit/Delete Your Post
+![Edit Post](screenshots/Edit-Delete_your_own_post.png)
 
-### Login to participate in Dicussion 
-![View A Post In Detail](screenshots/log-in.png)
+### Login to Participate in Discussions
+![Login](screenshots/log-in.png)
 
 ### Search Latest Tech News
-![View A Post In Detail](screenshots/Tech-Articals-PublicAPI.png)
+![Tech Articles](screenshots/Tech-Articals-PublicAPI.png)
 
 ## 🛠️ Tech Stack
 
+* React
+* Vite
 * Node.js
 * Express.js
-* EJS
-* MySQL
 * REST APIs
-* Bootstrap
-* UUID
+* MySQL
+* Axios
+* EJS
 * Aiven — Cloud MySQL
-* Render — Deployment
+* Render — Backend Deployment
+* Vercel — Frontend Deployment
+* Git & GitHub
 
 ## ✨ Features
 
-* Create, view, edit and delete posts
-* Anonymous usernames
+* Create and view posts
+* Edit and delete your own posts
+* User signup and login
+* Anonymous usernames for posts
 * UUID-based post IDs
-* Created & updated timestamps
+* Created and updated timestamps
 * MySQL database persistence
+* Tech news integration using a public API
 * Cloud database integration
-* Deployed backend
+* Deployed React frontend and Express backend
 
 ## 🔌 Routes
 
+### React REST API
+
 ```text
-GET     /posts          → View all posts
-GET     /posts/new      → Show create-post form
-POST    /posts          → Create a new post
-GET     /posts/:id      → View a specific post
-GET     /posts/:id/edit → Show edit-post form
-PATCH   /posts/:id      → Update a post
-DELETE  /posts/:id      → Delete a post
+GET     /api/me          → Check logged-in user
+POST    /api/signup      → Register a user
+POST    /api/login       → Log in
+POST    /api/logout      → Log out
+GET     /api/posts       → Fetch all posts
+POST    /api/posts       → Create a post
+PUT     /api/posts/:id   → Update your own post
+DELETE  /api/posts/:id   → Delete your own post
+GET     /api/tech-news   → Fetch latest tech news
 ```
 
 ## 💻 Run Locally
 
 ### 1. Clone the repository
 
+```bash
 git clone https://github.com/Ayush17281/campus-verse-rest-api.git
+```
 
 ### 2. Go to the project folder
 
+```bash
 cd campus-verse-rest-api
+```
 
-### 3. Install dependencies
+### 3. Install backend dependencies
 
+```bash
 npm install
+```
 
 ### 4. Set up MySQL
 
-Create a MySQL database and run the `schema.sql` file to create the `posts` table.
+Create a MySQL database and run the `schema.sql` file to create the required tables.
 
 ### 5. Create `.env`
 
-Add your MySQL connection details:
+Add your MySQL connection details and session secret:
 
+```env
 DB_HOST=your_host
 DB_PORT=your_port
 DB_USER=your_user
 DB_PASSWORD=your_password
 DB_NAME=your_database_name
+SESSION_SECRET=your_random_secret
+```
 
-### 6. Start the server
+Never commit your `.env` file or expose your database credentials.
 
+### 6. Start the backend
+
+```bash
 npm start
+```
 
-Open:
+The backend runs at:
 
 http://localhost:8080/
 
+### 7. Start the frontend
+
+Open another terminal:
+
+```bash
+cd client
+npm install
+npm run dev
+```
+
+Open the Vite development URL shown in the terminal, usually:
+
+http://localhost:5173/
+
 ## 📚 What I Learned
 
-* Express routing & middleware
+* React components, state, and effects
+* Building a frontend with Vite
+* Express routing and middleware
 * REST APIs and CRUD operations
-* EJS templating
+* User authentication and sessions
 * MySQL integration
-* UUIDs & parameterized queries
+* UUIDs and parameterized queries
 * Environment variables
-* Git & GitHub
-* Cloud deployment with **Aiven + Render**
+* Git and GitHub collaboration
+* Cloud deployment with **Vercel, Render, and Aiven**
 
-> A project built as part of my MERN Stack learning journey.
+> A project built as part of my full-stack development learning journey.

@@ -21,7 +21,7 @@ https://campus-verse-rest-api.onrender.com
 ![Create Post](screenshots/Share-A-post.png)
 
 ### Edit Post
-![Edit Post](screenshots/edit-post.png)
+![Edit Post](screenshots/Edit-Delete_your_own_post.png)
 
 ### Login to participate in Dicussion 
 ![View A Post In Detail](screenshots/log-in.png)

@@ -1,4 +1,4 @@
-app.set('trust proxy', 1);
+
 //MIDDLEWARES
 const bcrypt = require('bcrypt');
 const session = require('express-session');
@@ -13,6 +13,9 @@ const    {v4 : uuidv4} = require("uuid") ;
 
 // Settin up a local Server 
 const app = express();
+app.set('trust proxy', 1);
+
+
 app.use(cors({
   origin: [
     'http://localhost:5173',

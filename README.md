@@ -15,16 +15,19 @@ https://campus-verse-rest-api.onrender.com
 ## 📸 Screenshots
 
 ### Posts
-![Posts](screenshots/all-posts.png)
+![Posts](screenshots/Front-Page-UI.png)
 
 ### Create Post
-![Create Post](screenshots/create-post.png)
+![Create Post](screenshots/Share-A-post.png)
 
 ### Edit Post
 ![Edit Post](screenshots/edit-post.png)
 
-### View Post In Detail 
-![View A Post In Detail](screenshots/post-detail.png)
+### Login to participate in Dicussion 
+![View A Post In Detail](screenshots/log-in.png)
+
+### Search Latest Tech News
+![View A Post In Detail](screenshots/Tech-Articals-PublicAPI.png)
 
 ## 🛠️ Tech Stack
 

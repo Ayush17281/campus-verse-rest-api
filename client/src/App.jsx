@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-
-const API = 'http://localhost:8080/api'
+const API = 'https://campus-verse-rest-api.onrender.com/api'
 const categories = ['General', 'Placements', 'Events', 'Clubs']
 
 function App() {

@@ -20,7 +20,7 @@ https://campus-verse-rest-api.onrender.com
 ### Create Post
 ![Create Post](screenshots/Share-A-post.png)
 
-### Edit Post
+### Edit/Delete Your Post
 ![Edit Post](screenshots/Edit-Delete_your_own_post.png)
 
 ### Login to participate in Dicussion 

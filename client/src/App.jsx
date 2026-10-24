@@ -154,9 +154,9 @@ async function loadNews() {
   setNewsError('');
 
   try {
-    const response = await fetch(
-      `http://localhost:8080/api/tech-news?q=${encodeURIComponent(newsQuery)}`
-    );
+   const response = await fetch(
+  `https://campus-verse-rest-api.onrender.com/api/tech-news?q=${encodeURIComponent(newsQuery)}`
+);
 
     if (!response.ok) throw new Error();
 

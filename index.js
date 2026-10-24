@@ -1,4 +1,4 @@
-
+app.set('trust proxy', 1);
 //MIDDLEWARES
 const bcrypt = require('bcrypt');
 const session = require('express-session');
@@ -34,7 +34,8 @@ app.use(session({
   cookie: {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
-    sameSite: 'lax'
+   sameSite: 'none',
+secure: true 
   }
 }));
 
